@@ -2,11 +2,11 @@ import { createConnection } from "typeorm";
 
 createConnection({
   type: "mysql",
-  host: "127.0.0.1",
+  host: "172.17.0.2",
   port: 3306,
   username: "root",
-  password: "aluno",
-  database: "jrsmarc",
+  password: "34544615",
+  database: "dbschool",
   entities: [__dirname + "/../entities/*.ts"],
 })
   .then(() => {

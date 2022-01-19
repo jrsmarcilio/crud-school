@@ -6,33 +6,35 @@ import {
   UpdateDateColumn,
   AfterLoad,
   BeforeUpdate,
+  BeforeInsert,
 } from "typeorm";
+
+import bcrypt from "bcryptjs";
 
 @Entity({ name: "users" })
 class Users {
   @PrimaryGeneratedColumn("increment")
   readonly id: number;
 
-  @Column()
+  @Column({ nullable: false })
   name: string;
 
-  @Column()
+  @Column({ nullable: false })
   username: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
+  email: string;
+
+  @Column({ name: "is_active", nullable: false, type: "bit" })
+  isActive: boolean;
+
+  @Column({ select: false, nullable: true })
   password: string;
 
-  private tempPassword: string;
-
-  @AfterLoad()
-  private loadTempPassword(): void {
-    this.tempPassword = this.password;
-  }
-
-  @BeforeUpdate()
-  private encryptPassword(): void {
-    if (this.tempPassword !== this.password) {
-      //
+  @BeforeInsert()
+  async encryptPassword(): Promise<void> {
+    if (this.password) {
+      this.password = await bcrypt.hash(this.password, 8);
     }
   }
 
