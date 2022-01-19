@@ -1,6 +1,6 @@
 import { getCustomRepository } from "typeorm";
 import { StudentRepositories } from "../../repositories/StudentRepositories";
-import { IStudentRequest } from "../../interface/Student";
+import { IStudentRequest } from "../../interface";
 
 class CreateStudentService {
   async execute({ name, email, course }: IStudentRequest) {
