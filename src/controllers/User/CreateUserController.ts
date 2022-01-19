@@ -18,7 +18,7 @@ class CreateUserController {
     });
 
     return response.render(
-      path.join(__dirname, "../../views/welcome"),
+      "mail/welcome",
       {
         name: user.name,
         emailActiveLink: "http://localhost:3001/",
