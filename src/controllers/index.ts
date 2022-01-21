@@ -3,11 +3,15 @@ import { DeleteStudentController } from "./Student/DeleteStudentController";
 import { ShowStudentController } from "./Student/ShowStudentController";
 import { UpdateStudentController } from "./Student/UpdateStudentController";
 import { CreateUserController } from "./User/CreateUserController";
+import { CreateMailController } from "./Mail/CreateMailController";
+import { ActivateUserController } from "./User/ActivateUserController";
 
 export {
   CreateStudentController,
   DeleteStudentController,
   ShowStudentController,
   UpdateStudentController,
-  CreateUserController
+  CreateUserController,
+  CreateMailController,
+  ActivateUserController,
 };

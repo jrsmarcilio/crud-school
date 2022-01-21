@@ -4,8 +4,6 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-  AfterLoad,
-  BeforeUpdate,
   BeforeInsert,
 } from "typeorm";
 
@@ -25,10 +23,10 @@ class Users {
   @Column({ nullable: false })
   email: string;
 
-  @Column({ name: "is_active", nullable: false, type: "bit" })
+  @Column({ name: "is_active", nullable: false, type: "tinyint" })
   isActive: boolean;
 
-  @Column({ select: false, nullable: true })
+  @Column({ nullable: true })
   password: string;
 
   @BeforeInsert()

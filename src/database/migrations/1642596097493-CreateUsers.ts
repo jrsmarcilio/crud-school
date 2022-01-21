@@ -42,7 +42,8 @@ export class CreateUsers1642596097493 implements MigrationInterface {
           },
           {
             name: "is_active",
-            type: "bit",
+            type: "tinyint",
+            width: 1,
             default: 0,
             isNullable: false,
           },

@@ -9,11 +9,12 @@ class CreateUserService {
     if (!name || !username || !password || !email)
       throw new Error("Incomplete user data");
 
-    const usernameAlreadExists = await usersRepository.findOne({ username });
-    const emailAlreadExists = await usersRepository.findOne({ email });
+    const userAlreadExists = await usersRepository.findOne({
+      username,
+      email,
+    });
 
-    if (usernameAlreadExists || emailAlreadExists)
-      throw new Error("User already exists");
+    if (userAlreadExists) throw new Error("User already exists");
 
     const user = usersRepository.create({ name, username, password, email });
 
