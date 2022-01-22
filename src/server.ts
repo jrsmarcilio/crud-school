@@ -1,7 +1,6 @@
 import "reflect-metadata";
 import "express-async-errors";
 import "./database";
-import "./config/passportConfig";
 
 import express from "express";
 import cors from "cors";
@@ -24,7 +23,7 @@ app.set("view engine", "jade");
 
 app.use(
   cors({
-    origin: "https://next-school.vercel.app/",
+    origin: "https://next-school.vercel.app",
     credentials: true,
   })
 );
@@ -33,6 +32,7 @@ app.use(session(sessionOptions));
 
 app.use(passport.initialize());
 app.use(passport.session());
+import "./config/passportConfig"
 
 app.use(routes);
 
