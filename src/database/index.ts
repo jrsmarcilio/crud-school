@@ -1,13 +1,12 @@
+import "dotenv/config";
 import { createConnection } from "typeorm";
 
 createConnection({
   type: "mysql",
-  host: "172.17.0.2",
-  port: 3306,
-  username: "root",
-  password: "34544615",
-  database: "dbschool",
+  url: process.env.CLEARDB_DATABASE_URL,
   entities: [__dirname + "/../entities/*.ts"],
+  synchronize: true,
+  ssl: true,
 })
   .then(() => {
     console.log("Connected");
