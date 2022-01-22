@@ -20,7 +20,10 @@ app.use(express_1.default.urlencoded({ extended: true }));
 app.set("views", path_1.default.join(__dirname, "views"));
 app.set("view engine", "jade");
 app.use((0, cors_1.default)({
-    origin: "https://next-school.vercel.app",
+    origin: [
+        "https://next-school.vercel.app",
+        "https://next-school-52p4zsoke-jrsmarcilio.vercel.app",
+    ],
     credentials: true,
 }));
 app.use((0, express_session_1.default)(expressSessionConfig_1.sessionOptions));
