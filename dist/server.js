@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
 require("express-async-errors");
 require("./database");
-require("./config/passportConfig");
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
@@ -21,12 +20,13 @@ app.use(express_1.default.urlencoded({ extended: true }));
 app.set("views", path_1.default.join(__dirname, "views"));
 app.set("view engine", "jade");
 app.use((0, cors_1.default)({
-    origin: "https://next-school.vercel.app/",
+    origin: "https://next-school.vercel.app",
     credentials: true,
 }));
 app.use((0, express_session_1.default)(expressSessionConfig_1.sessionOptions));
 app.use(passport_1.default.initialize());
 app.use(passport_1.default.session());
+require("./config/passportConfig");
 app.use(routes_1.routes);
 app.use(expressAssyncErrorsConfig_1.ExpressAssyncErrorsConfig);
 const PORT = process.env.PORT || 3001;
