@@ -7,6 +7,7 @@ const typeorm_1 = require("typeorm");
     url: process.env.CLEARDB_DATABASE_URL,
     entities: [__dirname + "/../entities/*.js"],
     synchronize: true,
+    logging: true,
 })
     .then(() => {
     console.log("Connected to the database.");
