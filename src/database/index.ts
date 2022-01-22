@@ -1,9 +1,9 @@
 import "dotenv/config";
 import { createConnection } from "typeorm";
-console.log(process.env.CLEARDB_DATABASE_URL);
+
 createConnection({
   type: "mysql",
-  url: process.env.CLEARDB_DATABASE_URL,
+  url: "mysql://b53456eee32bdb:b5a7927d@us-cdbr-east-05.cleardb.net/heroku_851004f20e5d6b0?reconnect=true",
   entities: [__dirname + "/../entities/*.ts"],
   synchronize: true,
 })
