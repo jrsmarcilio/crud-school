@@ -3,7 +3,7 @@ import { createConnection } from "typeorm";
 
 createConnection({
   type: "mysql",
-  url: "mysql://b53456eee32bdb:b5a7927d@us-cdbr-east-05.cleardb.net/heroku_851004f20e5d6b0?reconnect=true",
+  url: process.env.CLEARDB_DATABASE_URL,
   entities: [__dirname + "/../entities/*.ts"],
   synchronize: true,
 })
