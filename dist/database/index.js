@@ -5,11 +5,11 @@ const typeorm_1 = require("typeorm");
 (0, typeorm_1.createConnection)({
     type: "mysql",
     url: process.env.CLEARDB_DATABASE_URL,
-    entities: [__dirname + "/../entities/*.ts"],
+    entities: [__dirname + "/../entities/*.js"],
     synchronize: true,
 })
     .then(() => {
-    console.log("Connected");
+    console.log("Connected to the database.");
 })
     .catch((err) => console.error("Error Connected", err));
 //# sourceMappingURL=index.js.map
