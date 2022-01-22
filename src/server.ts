@@ -23,7 +23,10 @@ app.set("view engine", "jade");
 
 app.use(
   cors({
-    origin: "https://next-school.vercel.app",
+    origin: [
+      "https://next-school.vercel.app",
+      "https://next-school-52p4zsoke-jrsmarcilio.vercel.app",
+    ],
     credentials: true,
   })
 );
@@ -32,7 +35,7 @@ app.use(session(sessionOptions));
 
 app.use(passport.initialize());
 app.use(passport.session());
-import "./config/passportConfig"
+import "./config/passportConfig";
 
 app.use(routes);
 

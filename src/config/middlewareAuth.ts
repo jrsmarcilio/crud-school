@@ -7,6 +7,6 @@ const middlewareAuth = (
 ) =>
   request.isAuthenticated()
     ? next()
-    : response.redirect("https://next-school.vercel.app/");
+    : response.redirect("https://next-school.vercel.app");
 
 export { middlewareAuth };
