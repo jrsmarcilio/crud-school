@@ -25,6 +25,7 @@ routes.put("/students/:id", middlewareAuth_1.middlewareAuth, updateStudentContro
 routes.post("/users", createUserController.handle, createMailController.handle);
 routes.get("/active-mail/:email", activateUserController.mail);
 routes.post("/login", passport_1.default.authenticate("local", {
-    successRedirect: "http://localhost:3000/students",
+    successRedirect: "https://next-school.vercel.app/students",
+    failureRedirect: "https://next-school.vercel.app/",
 }));
 //# sourceMappingURL=routes.js.map
