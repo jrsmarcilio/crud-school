@@ -21,7 +21,7 @@ app.use(express.json());
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: "*", credentials: true }));
 
 app.use(session(sessionOptions));
 
@@ -32,5 +32,5 @@ app.use(routes);
 
 app.use(ExpressAssyncErrorsConfig);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`server running on port ${PORT}`));
