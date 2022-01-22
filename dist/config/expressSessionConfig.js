@@ -3,11 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.sessionOptions = void 0;
 require("dotenv/config");
 const sessionOptions = {
-    secret: String(process.env.SESSION_SECRET),
+    secret: `${process.env.SESSION_SECRET}`,
     resave: true,
     saveUninitialized: true,
     cookie: {
-        maxAge: Number(process.env.SESSION_COOKIE_MAX_AGE),
+        maxAge: 1000 * 60 * 15,
         httpOnly: true,
     },
 };
