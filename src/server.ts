@@ -10,6 +10,7 @@ import passport from "passport";
 
 import { sessionOptions } from "./config/expressSessionConfig";
 import { ExpressAssyncErrorsConfig } from "./config/expressAssyncErrorsConfig";
+import { corsOptions } from "./config/corsConfig";
 
 import { routes } from "./routes";
 
@@ -18,18 +19,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(cors(corsOptions));
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
-
-app.use(
-  cors({
-    origin: [
-      "https://next-school.vercel.app",
-      "https://next-school-52p4zsoke-jrsmarcilio.vercel.app",
-    ],
-    credentials: true,
-  })
-);
 
 app.use(session(sessionOptions));
 
