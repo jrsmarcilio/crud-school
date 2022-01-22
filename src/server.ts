@@ -22,7 +22,12 @@ app.use(express.urlencoded({ extended: true }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
-app.use(cors({ credentials: true }));
+app.use(
+  cors({
+    origin: "https://next-school.vercel.app/",
+    credentials: true,
+  })
+);
 
 app.use(session(sessionOptions));
 

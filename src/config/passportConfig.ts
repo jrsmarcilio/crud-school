@@ -4,7 +4,6 @@ import { IStrategyOptionsWithRequest, Strategy } from "passport-local";
 import { getCustomRepository } from "typeorm";
 
 import { UsersRepositories } from "../repositories/UsersRepositories";
-import { Buffer } from "buffer";
 
 const strategyFields: IStrategyOptionsWithRequest = {
   usernameField: "username",
