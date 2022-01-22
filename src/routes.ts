@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Request, Response, NextFunction, Router } from "express";
 import passport from "passport";
 import { middlewareAuth } from "./config/middlewareAuth";
 
