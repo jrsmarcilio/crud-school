@@ -11,7 +11,6 @@
     "deploy": "git add . && git commit -m Heroku && git push heroku-staging main"
   },
   "dependencies": {
-    "@types/passport-local": "^1.0.34",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^14.2.0",
@@ -34,6 +33,7 @@
     "@types/node": "^17.0.8",
     "@types/nodemailer": "^6.4.4",
     "@types/passport": "^1.0.7",
+    "@types/passport-local": "^1.0.34",
     "nodemon": "^2.0.15",
     "ts-node-dev": "^1.1.8",
     "tslint": "^6.1.3",
