@@ -24,5 +24,8 @@ routes.delete("/students/:id", middlewareAuth_1.middlewareAuth, deleteStudentCon
 routes.put("/students/:id", middlewareAuth_1.middlewareAuth, updateStudentController.edit);
 routes.post("/users", createUserController.handle, createMailController.handle);
 routes.get("/active-mail/:email", activateUserController.mail);
-routes.post("/login", passport_1.default.authenticate("local"));
+routes.post("/login", passport_1.default.authenticate("local", {
+    successRedirect: "https://next-school.vercel.app/students",
+    failureRedirect: "https://next-school.vercel.app/",
+}));
 //# sourceMappingURL=routes.js.map
