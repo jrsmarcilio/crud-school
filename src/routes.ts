@@ -33,10 +33,7 @@ routes.get("/active-mail/:email", activateUserController.mail);
 
 routes.post(
   "/login",
-  passport.authenticate("local", {
-    successRedirect: "https://next-school.vercel.app/students",
-    failureRedirect: "https://next-school.vercel.app/",
-  })
+  passport.authenticate("local")
 );
 
 export { routes };
