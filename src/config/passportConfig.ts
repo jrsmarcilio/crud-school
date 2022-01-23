@@ -1,6 +1,6 @@
 import passport from "passport";
 import bcrypt from "bcryptjs";
-import { IStrategyOptionsWithRequest, Strategy } from "passport-local";
+import passportLocal, { IStrategyOptionsWithRequest } from "passport-local";
 import { getCustomRepository } from "typeorm";
 
 import { UsersRepositories } from "../repositories/UsersRepositories";
@@ -24,21 +24,24 @@ passport.deserializeUser(async (id: number, done: any) => {
 });
 
 passport.use(
-  new Strategy(strategyFields, async (_req, username, password, done) => {
-    const usersRepository = getCustomRepository(UsersRepositories);
+  new passportLocal.Strategy(
+    strategyFields,
+    async (_req, username, password, done) => {
+      const usersRepository = getCustomRepository(UsersRepositories);
 
-    const user = await usersRepository.findOne({ username });
+      const user = await usersRepository.findOne({ username });
 
-    if (!user) return done(null, false);
+      if (!user) return done(null, false);
 
-    if (user.isActive) {
-      const isValid = bcrypt.compareSync(password, user.password);
+      if (user.isActive) {
+        const isValid = bcrypt.compareSync(password, user.password);
 
-      if (!isValid) return done(null, false);
+        if (!isValid) return done(null, false);
 
-      return done(null, user);
-    } else {
-      return done(null, false);
+        return done(null, user);
+      } else {
+        return done(null, false);
+      }
     }
-  })
+  )
 );
