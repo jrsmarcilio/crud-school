@@ -18,7 +18,7 @@ routes.get("/students", auth_1.middlewareAuth, showStudentController.show);
 routes.post("/students", auth_1.middlewareAuth, createStudentController.handle);
 routes.get("/students/:id", auth_1.middlewareAuth, showStudentController.index);
 routes.delete("/students/:id", auth_1.middlewareAuth, deleteStudentController.delete);
-routes.put("/students", auth_1.middlewareAuth, updateStudentController.edit);
+routes.put("/students/:id", auth_1.middlewareAuth, updateStudentController.edit);
 routes.post("/users", createUserController.handle, createMailController.handle);
 routes.get("/active-mail/:email", activateUserController.mail);
 routes.post("/sessions", createSessionController.store);

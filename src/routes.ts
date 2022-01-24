@@ -27,7 +27,7 @@ routes.get("/students", middlewareAuth, showStudentController.show);
 routes.post("/students", middlewareAuth, createStudentController.handle);
 routes.get("/students/:id", middlewareAuth, showStudentController.index);
 routes.delete("/students/:id", middlewareAuth, deleteStudentController.delete);
-routes.put("/students", middlewareAuth, updateStudentController.edit);
+routes.put("/students/:id", middlewareAuth, updateStudentController.edit);
 
 routes.post("/users", createUserController.handle, createMailController.handle);
 routes.get("/active-mail/:email", activateUserController.mail);
