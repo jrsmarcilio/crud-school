@@ -18,7 +18,7 @@ class ActivateUserController {
             const activateUserService = new ActivateUserService_1.ActivateUserService();
             const mail = yield activateUserService.active(email);
             return response
-                .json({ message: mail })
+                .json({ mail })
                 .redirect(`https://next-school.vercel.app/?message=${mail}`);
         });
     }
