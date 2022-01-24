@@ -1,30 +1,14 @@
-//import "dotenv/config";
+import "dotenv/config";
 import { createConnection } from "typeorm";
-
-// createConnection({
-//   type: "mysql",
-//   url: process.env.CLEARDB_DATABASE_URL,
-//   entities: [__dirname + "/../entities/*.js"],
-//   synchronize: true,
-//   logging: true,
-// })
-//   .then(() => {
-//     console.log("Connected to the database.");
-//   })
-//   .catch((err) => console.error("Error Connected", err));
 
 createConnection({
   type: "mysql",
-  host: "172.17.0.2",
-  username: "root",
-  password: "34544615",
-  database: "dbschool",
-  port: 3306,
-  entities: [__dirname + "/../entities/*.ts"],
+  url: process.env.CLEARDB_DATABASE_URL,
+  entities: [__dirname + "/../entities/*.js"],
   synchronize: true,
   logging: true,
 })
   .then(() => {
-    console.log("Connected to the database local.");
+    console.log("Connected to the database.");
   })
   .catch((err) => console.error("Error Connected", err));
