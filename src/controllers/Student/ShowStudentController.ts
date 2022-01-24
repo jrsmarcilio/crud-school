@@ -12,12 +12,12 @@ class ShowStudentController {
     return response.status(200).json(students);
   }
   async index(request: Request, response: Response) {
-    const { id } = request.params;
+    const id = Number(request.params.id);
     const { userId } = request;
 
     const showStudentService = new ShowStudentService();
 
-    const student = await showStudentService.findOne(Number(id), userId);
+    const student = await showStudentService.findOne(id, userId);
 
     return response.status(200).json(student);
   }

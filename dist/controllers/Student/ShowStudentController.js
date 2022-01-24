@@ -22,10 +22,10 @@ class ShowStudentController {
     }
     index(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = request.params;
+            const id = Number(request.params.id);
             const { userId } = request;
             const showStudentService = new ShowStudentService_1.ShowStudentService();
-            const student = yield showStudentService.findOne(Number(id), userId);
+            const student = yield showStudentService.findOne(id, userId);
             return response.status(200).json(student);
         });
     }

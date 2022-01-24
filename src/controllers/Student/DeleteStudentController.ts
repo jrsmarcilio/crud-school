@@ -3,12 +3,12 @@ import { DeleteStudentService } from "../../services/Student/DeleteStudentServic
 
 class DeleteStudentController {
   async delete(request: Request, response: Response) {
-    const { id } = request.params;
+    const id = Number(request.params.id);
     const { userId } = request;
 
     const deleteStudentService = new DeleteStudentService();
 
-    await deleteStudentService.exlude(Number(id), userId);
+    await deleteStudentService.exclude(id, userId);
 
     return response
       .status(200)

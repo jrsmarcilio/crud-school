@@ -17,7 +17,7 @@ class DeleteStudentController {
             const id = Number(request.params.id);
             const { userId } = request;
             const deleteStudentService = new DeleteStudentService_1.DeleteStudentService();
-            yield deleteStudentService.exlude(id, userId);
+            yield deleteStudentService.exclude(id, userId);
             return response
                 .status(200)
                 .json({ message: "Student deleted successfully." });

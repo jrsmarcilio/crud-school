@@ -13,7 +13,7 @@ exports.DeleteStudentService = void 0;
 const typeorm_1 = require("typeorm");
 const StudentRepositories_1 = require("../../repositories/StudentRepositories");
 class DeleteStudentService {
-    exlude(id, idUser) {
+    exclude(id, idUser) {
         return __awaiter(this, void 0, void 0, function* () {
             const studentRepository = (0, typeorm_1.getCustomRepository)(StudentRepositories_1.StudentRepositories);
             if (!id)

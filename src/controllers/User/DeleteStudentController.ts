@@ -8,7 +8,7 @@ class DeleteStudentController {
 
     const deleteStudentService = new DeleteStudentService();
 
-    await deleteStudentService.exlude(id, userId);
+    await deleteStudentService.exclude(id, userId);
 
     return response
       .status(200)

@@ -2,7 +2,7 @@ import { getCustomRepository } from "typeorm";
 import { StudentRepositories } from "../../repositories/StudentRepositories";
 
 class DeleteStudentService {
-  async exlude(id: number, idUser: number) {
+  async exclude(id: number, idUser: number) {
     const studentRepository = getCustomRepository(StudentRepositories);
 
     if (!id) throw new Error("Id incorrect");
