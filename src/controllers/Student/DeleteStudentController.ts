@@ -5,7 +5,7 @@ class DeleteStudentController {
   async delete(request: Request, response: Response) {
     const id = Number(request.params.id);
     const { userId } = request;
-
+   
     const deleteStudentService = new DeleteStudentService();
 
     await deleteStudentService.exclude(id, userId);

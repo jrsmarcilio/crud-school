@@ -15,14 +15,16 @@ class CreateMailController {
 
         const createMailService = new CreateMailService();
 
-        const mail = await createMailService.sendMail({
+        await createMailService.sendMail({
           email: email,
           subject: "Valide your e-mail address",
           to: email,
           html: html,
         });
 
-        return response.json(mail);
+        return response.json({
+          message: "Valide your e-mail to confirm your identity.",
+        });
       }
     );
   }

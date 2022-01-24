@@ -18,7 +18,7 @@ class DeleteStudentService {
 
     if (!student) throw new Error("Student not found");
 
-    return studentRepository.delete(student);
+    return await studentRepository.remove(student);
   }
 }
 
