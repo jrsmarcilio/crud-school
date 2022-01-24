@@ -5,7 +5,7 @@ const typeorm_1 = require("typeorm");
 (0, typeorm_1.createConnection)({
     type: "mysql",
     url: process.env.CLEARDB_DATABASE_URL,
-    entities: [__dirname + "/../entities/*.js"],
+    entities: [__dirname + "/../entities/*.ts"],
     synchronize: true,
     logging: true,
 })
