@@ -15,8 +15,14 @@ class CreateStudentController {
     handle(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             const { name, email, course } = request.body;
+            const { userId } = request;
             const createStudentService = new CreateStudentService_1.CreateStudentService();
-            const student = yield createStudentService.execute({ name, email, course });
+            const student = yield createStudentService.execute({
+                name,
+                email,
+                course,
+                userId,
+            });
             return response.json(student);
         });
     }

@@ -13,10 +13,13 @@ exports.UpdateStudentService = void 0;
 const typeorm_1 = require("typeorm");
 const StudentRepositories_1 = require("../../repositories/StudentRepositories");
 class UpdateStudentService {
-    updated({ id, name, email, course }) {
+    updated({ id, userId, name, email, course }) {
         return __awaiter(this, void 0, void 0, function* () {
             const studentRepository = (0, typeorm_1.getCustomRepository)(StudentRepositories_1.StudentRepositories);
-            const studentAlreadExists = yield studentRepository.findOne({ id });
+            const studentAlreadExists = yield studentRepository.findOne({
+                id,
+                user: { id: userId },
+            });
             if (!studentAlreadExists)
                 throw new Error("Student not found");
             return yield studentRepository.update({ id }, {

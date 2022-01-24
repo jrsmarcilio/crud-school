@@ -14,16 +14,18 @@ const ShowStudentService_1 = require("../../services/Student/ShowStudentService"
 class ShowStudentController {
     show(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
+            const { userId } = request;
             const showStudentService = new ShowStudentService_1.ShowStudentService();
-            const students = yield showStudentService.findAll();
+            const students = yield showStudentService.findAll(userId);
             return response.status(200).json(students);
         });
     }
     index(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = request.params;
+            const { userId } = request;
             const showStudentService = new ShowStudentService_1.ShowStudentService();
-            const student = yield showStudentService.findOne(Number(id));
+            const student = yield showStudentService.findOne(Number(id), userId);
             return response.status(200).json(student);
         });
     }

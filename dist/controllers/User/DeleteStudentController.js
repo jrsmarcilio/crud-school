@@ -14,9 +14,10 @@ const DeleteStudentService_1 = require("../../services/Student/DeleteStudentServ
 class DeleteStudentController {
     delete(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = request.params;
+            const id = Number(request.params.id);
+            const { userId } = request;
             const deleteStudentService = new DeleteStudentService_1.DeleteStudentService();
-            yield deleteStudentService.exlude(Number(id));
+            yield deleteStudentService.exlude(id, userId);
             return response
                 .status(200)
                 .json({ message: "Student deleted successfully." });

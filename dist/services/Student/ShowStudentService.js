@@ -13,19 +13,31 @@ exports.ShowStudentService = void 0;
 const typeorm_1 = require("typeorm");
 const StudentRepositories_1 = require("../../repositories/StudentRepositories");
 class ShowStudentService {
-    findAll() {
+    findAll(idUser) {
         return __awaiter(this, void 0, void 0, function* () {
             const studentRepository = (0, typeorm_1.getCustomRepository)(StudentRepositories_1.StudentRepositories);
-            const students = yield studentRepository.find();
+            const students = yield studentRepository.find({
+                where: {
+                    user: {
+                        id: idUser,
+                    },
+                },
+            });
+            console.log(students);
             if (!students)
                 throw new Error("Students not found");
             return students;
         });
     }
-    findOne(id) {
+    findOne(idStudent, idUser) {
         return __awaiter(this, void 0, void 0, function* () {
             const studentRepository = (0, typeorm_1.getCustomRepository)(StudentRepositories_1.StudentRepositories);
-            const student = yield studentRepository.findOne(id);
+            const student = yield studentRepository.findOne({
+                where: {
+                    id: idStudent,
+                    user: { id: idUser },
+                },
+            });
             if (!student)
                 throw new Error("Student not found");
             return student;

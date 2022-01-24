@@ -5,11 +5,13 @@ class UpdateStudentController {
   async edit(request: Request, response: Response) {
     const { name, email, course } = request.body;
     const id = Number(request.params.id);
+    const { userId } = request;
 
     const updatedStudentService = new UpdateStudentService();
 
     await updatedStudentService.updated({
       id,
+      userId,
       name,
       email,
       course,

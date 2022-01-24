@@ -3,16 +3,22 @@ import { StudentRepositories } from "../../repositories/StudentRepositories";
 import { IStudentRequest } from "../../interface";
 
 class CreateStudentService {
-  async execute({ name, email, course }: IStudentRequest) {
+  async execute({ name, email, course, userId }: IStudentRequest) {
     const studentRepository = getCustomRepository(StudentRepositories);
 
-    if (!name || !email || !course) throw new Error("Incomplete student data");
+    if (!name || !email || !course || !userId)
+      throw new Error("Incomplete student data");
 
     const studentAlreadExists = await studentRepository.findOne({ email });
 
     if (studentAlreadExists) throw new Error("Student already exists");
 
-    const student = studentRepository.create({ name, email, course });
+    const student = studentRepository.create({
+      name,
+      email,
+      course,
+      user: { id: userId },
+    });
 
     await studentRepository.save(student);
 

@@ -5,6 +5,7 @@ import { UpdateStudentController } from "./Student/UpdateStudentController";
 import { CreateUserController } from "./User/CreateUserController";
 import { CreateMailController } from "./Mail/CreateMailController";
 import { ActivateUserController } from "./User/ActivateUserController";
+import { CreateSessionController } from "./Session/CreateSessionController";
 
 export {
   CreateStudentController,
@@ -14,4 +15,5 @@ export {
   CreateUserController,
   CreateMailController,
   ActivateUserController,
+  CreateSessionController,
 };

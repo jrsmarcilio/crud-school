@@ -4,7 +4,9 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  ManyToOne,
 } from "typeorm";
+import { Users } from './Users'
 
 @Entity({ name: "students" })
 class Student {
@@ -19,6 +21,9 @@ class Student {
 
   @Column()
   course: string;
+
+  @ManyToOne(() => Users, users => users.students)
+  user: Users;
 
   @CreateDateColumn()
   created_at: Date;

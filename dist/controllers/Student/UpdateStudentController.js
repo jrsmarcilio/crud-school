@@ -15,10 +15,12 @@ class UpdateStudentController {
     edit(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             const { name, email, course } = request.body;
-            const id = Number(request.params.id);
+            const { id } = request.params;
+            const { userId } = request;
             const updatedStudentService = new UpdateStudentService_1.UpdateStudentService();
             yield updatedStudentService.updated({
-                id,
+                id: Number(id),
+                userId,
                 name,
                 email,
                 course,

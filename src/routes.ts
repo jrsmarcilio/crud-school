@@ -1,6 +1,5 @@
 import { Router } from "express";
-import passport from "passport";
-import { middlewareAuth } from "./config/middlewareAuth";
+import { middlewareAuth } from "./middlewares/auth";
 
 import {
   CreateStudentController,
@@ -10,6 +9,7 @@ import {
   CreateUserController,
   CreateMailController,
   ActivateUserController,
+  CreateSessionController,
 } from "./controllers";
 
 const routes = Router();
@@ -21,22 +21,17 @@ const updateStudentController = new UpdateStudentController();
 const createUserController = new CreateUserController();
 const createMailController = new CreateMailController();
 const activateUserController = new ActivateUserController();
+const createSessionController = new CreateSessionController();
 
 routes.get("/students", middlewareAuth, showStudentController.show);
 routes.post("/students", middlewareAuth, createStudentController.handle);
 routes.get("/students/:id", middlewareAuth, showStudentController.index);
 routes.delete("/students/:id", middlewareAuth, deleteStudentController.delete);
-routes.put("/students/:id", middlewareAuth, updateStudentController.edit);
+routes.put("/students", middlewareAuth, updateStudentController.edit);
 
 routes.post("/users", createUserController.handle, createMailController.handle);
 routes.get("/active-mail/:email", activateUserController.mail);
 
-routes.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "https://next-school.vercel.app/students",
-    failureRedirect: "https://next-school.vercel.app/",
-  })
-);
+routes.post("/sessions", createSessionController.store);
 
 export { routes };

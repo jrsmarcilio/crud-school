@@ -13,12 +13,19 @@ exports.DeleteStudentService = void 0;
 const typeorm_1 = require("typeorm");
 const StudentRepositories_1 = require("../../repositories/StudentRepositories");
 class DeleteStudentService {
-    exlude(id) {
+    exlude(id, idUser) {
         return __awaiter(this, void 0, void 0, function* () {
             const studentRepository = (0, typeorm_1.getCustomRepository)(StudentRepositories_1.StudentRepositories);
             if (!id)
                 throw new Error("Id incorrect");
-            const student = yield studentRepository.findOne({ id });
+            const student = yield studentRepository.findOne({
+                where: {
+                    id: id,
+                    user: {
+                        id: idUser,
+                    },
+                },
+            });
             if (!student)
                 throw new Error("Student not found");
             return studentRepository.delete(student);

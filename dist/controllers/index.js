@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ActivateUserController = exports.CreateMailController = exports.CreateUserController = exports.UpdateStudentController = exports.ShowStudentController = exports.DeleteStudentController = exports.CreateStudentController = void 0;
+exports.CreateSessionController = exports.ActivateUserController = exports.CreateMailController = exports.CreateUserController = exports.UpdateStudentController = exports.ShowStudentController = exports.DeleteStudentController = exports.CreateStudentController = void 0;
 const CreateStudentController_1 = require("./Student/CreateStudentController");
 Object.defineProperty(exports, "CreateStudentController", { enumerable: true, get: function () { return CreateStudentController_1.CreateStudentController; } });
 const DeleteStudentController_1 = require("./Student/DeleteStudentController");
@@ -15,4 +15,6 @@ const CreateMailController_1 = require("./Mail/CreateMailController");
 Object.defineProperty(exports, "CreateMailController", { enumerable: true, get: function () { return CreateMailController_1.CreateMailController; } });
 const ActivateUserController_1 = require("./User/ActivateUserController");
 Object.defineProperty(exports, "ActivateUserController", { enumerable: true, get: function () { return ActivateUserController_1.ActivateUserController; } });
+const CreateSessionController_1 = require("./Session/CreateSessionController");
+Object.defineProperty(exports, "CreateSessionController", { enumerable: true, get: function () { return CreateSessionController_1.CreateSessionController; } });
 //# sourceMappingURL=index.js.map

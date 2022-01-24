@@ -3,10 +3,13 @@ import { StudentRepositories } from "../../repositories/StudentRepositories";
 import { IStudentRequest } from "../../interface";
 
 class UpdateStudentService {
-  async updated({ id, name, email, course }: IStudentRequest) {
+  async updated({ id, userId, name, email, course }: IStudentRequest) {
     const studentRepository = getCustomRepository(StudentRepositories);
 
-    const studentAlreadExists = await studentRepository.findOne({ id });
+    const studentAlreadExists = await studentRepository.findOne({
+      id,
+      user: { id: userId },
+    });
 
     if (!studentAlreadExists) throw new Error("Student not found");
 

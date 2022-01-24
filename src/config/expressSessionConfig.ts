@@ -3,10 +3,10 @@ import { SessionOptions } from "express-session";
 
 const sessionOptions: SessionOptions = {
   secret: `${process.env.SESSION_SECRET}`,
-  resave: true,
-  saveUninitialized: true,
+  resave: false,
+  saveUninitialized: false,
   cookie: {
-    maxAge: 1000 * 60 * 15,
+    maxAge: 1000 * 60 * 30,
     httpOnly: true,
   },
 };

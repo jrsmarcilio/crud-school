@@ -3,6 +3,7 @@ export interface IStudentRequest {
   name: string;
   email: string;
   course: string;
+  userId: number;
 }
 
 export interface IUserRequest {

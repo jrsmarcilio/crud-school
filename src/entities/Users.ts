@@ -5,9 +5,11 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
   BeforeInsert,
+  OneToMany,
 } from "typeorm";
 
 import bcrypt from "bcryptjs";
+import { Student } from "./Student";
 
 @Entity({ name: "users" })
 class Users {
@@ -17,17 +19,20 @@ class Users {
   @Column({ nullable: false })
   name: string;
 
-  @Column({ nullable: false })
+  @Column({ nullable: false, unique: true })
   username: string;
 
-  @Column({ nullable: false })
+  @Column({ nullable: false, unique: true })
   email: string;
 
-  @Column({ name: "is_active", nullable: false, type: "tinyint" })
+  @Column({ name: "is_active", nullable: false, type: "tinyint", default: 0 })
   isActive: boolean;
 
-  @Column({ nullable: true })
+  @Column({ nullable: false })
   password: string;
+
+  @OneToMany(() => Student, (student) => student.user)
+  students: Student[];
 
   @BeforeInsert()
   async encryptPassword(): Promise<void> {

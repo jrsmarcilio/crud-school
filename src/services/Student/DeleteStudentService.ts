@@ -2,12 +2,19 @@ import { getCustomRepository } from "typeorm";
 import { StudentRepositories } from "../../repositories/StudentRepositories";
 
 class DeleteStudentService {
-  async exlude(id: number) {
+  async exlude(id: number, idUser: number) {
     const studentRepository = getCustomRepository(StudentRepositories);
 
     if (!id) throw new Error("Id incorrect");
 
-    const student = await studentRepository.findOne({ id });
+    const student = await studentRepository.findOne({
+      where: {
+        id: id,
+        user: {
+          id: idUser,
+        },
+      },
+    });
 
     if (!student) throw new Error("Student not found");
 

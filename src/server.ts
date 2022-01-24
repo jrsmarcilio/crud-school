@@ -1,16 +1,13 @@
 import "reflect-metadata";
 import "express-async-errors";
 import "./database";
+import "dotenv/config";
 
 import express from "express";
-import cors from "cors";
 import path from "path";
-import session from "express-session";
-import passport from "passport";
+import cors from "cors";
 
-import { sessionOptions } from "./config/expressSessionConfig";
 import { ExpressAssyncErrorsConfig } from "./config/expressAssyncErrorsConfig";
-import { corsOptions } from "./config/corsConfig";
 
 import { routes } from "./routes";
 
@@ -19,16 +16,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors(corsOptions));
-
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
-app.use(session(sessionOptions));
-
-app.use(passport.initialize());
-app.use(passport.session());
-import "./config/passportConfig";
+app.use(cors({ origin: "*" }));
 
 app.use(routes);
 

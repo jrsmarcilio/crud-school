@@ -24,6 +24,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Users = void 0;
 const typeorm_1 = require("typeorm");
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
+const Student_1 = require("./Student");
 let Users = class Users {
     encryptPassword() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -42,21 +43,25 @@ __decorate([
     __metadata("design:type", String)
 ], Users.prototype, "name", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: false }),
+    (0, typeorm_1.Column)({ nullable: false, unique: true }),
     __metadata("design:type", String)
 ], Users.prototype, "username", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: false }),
+    (0, typeorm_1.Column)({ nullable: false, unique: true }),
     __metadata("design:type", String)
 ], Users.prototype, "email", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ name: "is_active", nullable: false, type: "tinyint" }),
+    (0, typeorm_1.Column)({ name: "is_active", nullable: false, type: "tinyint", default: 0 }),
     __metadata("design:type", Boolean)
 ], Users.prototype, "isActive", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ nullable: true }),
+    (0, typeorm_1.Column)({ nullable: false }),
     __metadata("design:type", String)
 ], Users.prototype, "password", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => Student_1.Student, (student) => student.user),
+    __metadata("design:type", Array)
+], Users.prototype, "students", void 0);
 __decorate([
     (0, typeorm_1.BeforeInsert)(),
     __metadata("design:type", Function),
