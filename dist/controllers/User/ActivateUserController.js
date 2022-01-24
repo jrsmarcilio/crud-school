@@ -16,8 +16,10 @@ class ActivateUserController {
         return __awaiter(this, void 0, void 0, function* () {
             const { email } = request.params;
             const activateUserService = new ActivateUserService_1.ActivateUserService();
-            const isActive = yield activateUserService.active(email);
-            return response.json(isActive);
+            const mail = yield activateUserService.active(email);
+            return response
+                .json({ message: mail })
+                .redirect(`https://next-school.vercel.app/?message=${mail}`);
         });
     }
 }

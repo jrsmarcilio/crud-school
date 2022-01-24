@@ -7,9 +7,11 @@ class ActivateUserController {
 
     const activateUserService = new ActivateUserService();
 
-    const isActive = await activateUserService.active(email);
+    const mail = await activateUserService.active(email);
 
-    return response.json(isActive);
+    return response
+      .json({ message: mail })
+      .redirect(`https://next-school.vercel.app/?message=${mail}`);
   }
 }
 

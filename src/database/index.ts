@@ -4,7 +4,7 @@ import { createConnection } from "typeorm";
 createConnection({
   type: "mysql",
   url: process.env.CLEARDB_DATABASE_URL,
-  entities: [__dirname + "/../entities/*.ts"],
+  entities: [__dirname + "/../entities/*.js"],
   synchronize: true,
   logging: true,
 })
