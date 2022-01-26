@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { CreateSessionService } from "../../services/Session/CreateSessionService";
 
-class CreateSessionController {
+class CreateSession {
   async store(request: Request, response: Response, next: NextFunction) {
     const { username, password } = request.body;
 
@@ -16,4 +16,4 @@ class CreateSessionController {
   }
 }
 
-export { CreateSessionController };
+export { CreateSession };

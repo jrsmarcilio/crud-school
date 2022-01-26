@@ -25,6 +25,7 @@ exports.Users = void 0;
 const typeorm_1 = require("typeorm");
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const Student_1 = require("./Student");
+const Courses_1 = require("./Courses");
 let Users = class Users {
     encryptPassword() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -62,6 +63,10 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => Student_1.Student, (student) => student.user),
     __metadata("design:type", Array)
 ], Users.prototype, "students", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => Courses_1.Courses, (courses) => courses.user),
+    __metadata("design:type", Array)
+], Users.prototype, "courses", void 0);
 __decorate([
     (0, typeorm_1.BeforeInsert)(),
     __metadata("design:type", Function),

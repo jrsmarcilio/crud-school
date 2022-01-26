@@ -24,9 +24,16 @@ export class CreateStudent1641945435098 implements MigrationInterface {
             length: "50",
           },
           {
-            name: "course",
+            name: "gender",
             type: "varchar",
-            length: "50",
+            length: "20",
+            isNullable: false,
+          },
+          {
+            name: "register",
+            type: "varchar",
+            length: "20",
+            isNullable: false,
           },
           {
             name: "created_at",

@@ -13,7 +13,7 @@ exports.UpdateStudentService = void 0;
 const typeorm_1 = require("typeorm");
 const StudentRepositories_1 = require("../../repositories/StudentRepositories");
 class UpdateStudentService {
-    updated({ id, userId, name, email, course }) {
+    updated({ id, gender, register, userId, name, email, course, }) {
         return __awaiter(this, void 0, void 0, function* () {
             const studentRepository = (0, typeorm_1.getCustomRepository)(StudentRepositories_1.StudentRepositories);
             const studentAlreadExists = yield studentRepository.findOne({
@@ -25,7 +25,9 @@ class UpdateStudentService {
             return yield studentRepository.update({ id }, {
                 email: email || studentAlreadExists.email,
                 name: name || studentAlreadExists.name,
-                course: course || studentAlreadExists.course,
+                gender: gender || studentAlreadExists.gender,
+                register: register || studentAlreadExists.register,
+                course: { id: course || studentAlreadExists.course.id },
             });
         });
     }

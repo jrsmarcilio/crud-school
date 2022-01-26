@@ -13,19 +13,23 @@ exports.CreateStudentService = void 0;
 const typeorm_1 = require("typeorm");
 const StudentRepositories_1 = require("../../repositories/StudentRepositories");
 class CreateStudentService {
-    execute({ name, email, course, userId }) {
+    execute({ name, gender, register, email, course, userId, }) {
         return __awaiter(this, void 0, void 0, function* () {
             const studentRepository = (0, typeorm_1.getCustomRepository)(StudentRepositories_1.StudentRepositories);
-            if (!name || !email || !course || !userId)
+            if (!name || !email || !course || !userId || !gender || !register)
                 throw new Error("Incomplete student data");
-            const studentAlreadExists = yield studentRepository.findOne({ email });
+            const studentAlreadExists = yield studentRepository.findOne({ register });
             if (studentAlreadExists)
                 throw new Error("Student already exists");
             const student = studentRepository.create({
-                name,
+                course: { id: course },
                 email,
-                course,
-                user: { id: userId },
+                gender,
+                name,
+                register,
+                user: {
+                    id: userId,
+                },
             });
             yield studentRepository.save(student);
             return student;

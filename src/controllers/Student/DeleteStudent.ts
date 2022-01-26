@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { DeleteStudentService } from "../../services/Student/DeleteStudentService";
 
-class DeleteStudentController {
+class DeleteStudent {
   async delete(request: Request, response: Response) {
     const id = Number(request.params.id);
     const { userId } = request;
-
+   
     const deleteStudentService = new DeleteStudentService();
 
     await deleteStudentService.exclude(id, userId);
@@ -16,4 +16,4 @@ class DeleteStudentController {
   }
 }
 
-export { DeleteStudentController };
+export { DeleteStudent };

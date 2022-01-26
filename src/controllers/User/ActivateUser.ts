@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { ActivateUserService } from "../../services/Users/ActivateUserService";
 
-class ActivateUserController {
+class ActivateUser {
   async mail(request: Request, response: Response) {
     const { email } = request.params;
 
@@ -15,4 +15,4 @@ class ActivateUserController {
   }
 }
 
-export { ActivateUserController };
+export { ActivateUser };

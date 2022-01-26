@@ -1,19 +1,23 @@
-import { CreateStudentController } from "./Student/CreateStudentController";
-import { DeleteStudentController } from "./Student/DeleteStudentController";
-import { ShowStudentController } from "./Student/ShowStudentController";
-import { UpdateStudentController } from "./Student/UpdateStudentController";
-import { CreateUserController } from "./User/CreateUserController";
-import { CreateMailController } from "./Mail/CreateMailController";
-import { ActivateUserController } from "./User/ActivateUserController";
-import { CreateSessionController } from "./Session/CreateSessionController";
+import { CreateStudent } from "./Student/CreateStudent";
+import { DeleteStudent } from "./Student/DeleteStudent";
+import { ShowStudent } from "./Student/ShowStudent";
+import { UpdateStudent } from "./Student/UpdateStudent";
+import { CreateUser } from "./User/CreateUser";
+import { CreateMail } from "./Mail/CreateMail";
+import { ActivateUser } from "./User/ActivateUser";
+import { CreateSession } from "./Session/CreateSession";
+import { CreateCourse } from "./Course/CreateCourse";
+import { ShowCourse } from "./Course/ShowCourse";
 
 export {
-  CreateStudentController,
-  DeleteStudentController,
-  ShowStudentController,
-  UpdateStudentController,
-  CreateUserController,
-  CreateMailController,
-  ActivateUserController,
-  CreateSessionController,
+  CreateStudent,
+  DeleteStudent,
+  ShowStudent,
+  UpdateStudent,
+  CreateUser,
+  CreateMail,
+  ActivateUser,
+  CreateSession,
+  CreateCourse,
+  ShowCourse,
 };

@@ -3,7 +3,15 @@ import { StudentRepositories } from "../../repositories/StudentRepositories";
 import { IStudentRequest } from "../../interface";
 
 class UpdateStudentService {
-  async updated({ id, userId, name, email, course }: IStudentRequest) {
+  async updated({
+    id,
+    gender,
+    register,
+    userId,
+    name,
+    email,
+    course,
+  }: IStudentRequest) {
     const studentRepository = getCustomRepository(StudentRepositories);
 
     const studentAlreadExists = await studentRepository.findOne({
@@ -18,7 +26,9 @@ class UpdateStudentService {
       {
         email: email || studentAlreadExists.email,
         name: name || studentAlreadExists.name,
-        course: course || studentAlreadExists.course,
+        gender: gender || studentAlreadExists.gender,
+        register: register || studentAlreadExists.register,
+        course: { id: course || studentAlreadExists.course.id },
       }
     );
   }

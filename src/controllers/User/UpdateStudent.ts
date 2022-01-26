@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { UpdateStudentService } from "../../services/Student/UpdateStudentService";
 
-class UpdateStudentController {
+class UpdateStudent {
   async edit(request: Request, response: Response) {
-    const { name, email, course } = request.body;
+    const { name, email, course, gender, register } = request.body;
     const id = Number(request.params.id);
     const { userId } = request;
 
@@ -15,6 +15,8 @@ class UpdateStudentController {
       name,
       email,
       course,
+      gender,
+      register,
     });
 
     return response
@@ -23,4 +25,4 @@ class UpdateStudentController {
   }
 }
 
-export { UpdateStudentController };
+export { UpdateStudent };

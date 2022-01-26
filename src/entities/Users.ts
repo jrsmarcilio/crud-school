@@ -10,6 +10,7 @@ import {
 
 import bcrypt from "bcryptjs";
 import { Student } from "./Student";
+import { Courses } from "./Courses";
 
 @Entity({ name: "users" })
 class Users {
@@ -33,6 +34,9 @@ class Users {
 
   @OneToMany(() => Student, (student) => student.user)
   students: Student[];
+
+  @OneToMany(() => Courses, (courses) => courses.user)
+  courses: Courses[];
 
   @BeforeInsert()
   async encryptPassword(): Promise<void> {

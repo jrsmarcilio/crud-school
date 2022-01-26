@@ -1,8 +1,10 @@
 export interface IStudentRequest {
   id?: number;
   name: string;
+  gender: string;
+  register: string;
   email: string;
-  course: string;
+  course: number;
   userId: number;
 }
 

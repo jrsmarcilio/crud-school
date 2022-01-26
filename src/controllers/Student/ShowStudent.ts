@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { ShowStudentService } from "../../services/Student/ShowStudentService";
 
-class ShowStudentController {
+class ShowStudent {
   async show(request: Request, response: Response) {
     const { userId } = request;
 
@@ -23,4 +23,4 @@ class ShowStudentController {
   }
 }
 
-export { ShowStudentController };
+export { ShowStudent };

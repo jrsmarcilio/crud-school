@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { CreateMailService } from "../../services/Mail/CreateMailService";
 
-class CreateMailController {
+class CreateMail {
   async handle(request: Request, response: Response) {
     const { name, email } = request.body;
     return response.render(
@@ -30,4 +30,4 @@ class CreateMailController {
   }
 }
 
-export { CreateMailController };
+export { CreateMail };
