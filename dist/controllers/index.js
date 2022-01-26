@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ShowCourse = exports.CreateCourse = exports.CreateSession = exports.ActivateUser = exports.CreateMail = exports.CreateUser = exports.UpdateStudent = exports.ShowStudent = exports.DeleteStudent = exports.CreateStudent = void 0;
+exports.CheckSession = exports.ShowCourse = exports.CreateCourse = exports.CreateSession = exports.ActivateUser = exports.CreateMail = exports.CreateUser = exports.UpdateStudent = exports.ShowStudent = exports.DeleteStudent = exports.CreateStudent = void 0;
 const CreateStudent_1 = require("./Student/CreateStudent");
 Object.defineProperty(exports, "CreateStudent", { enumerable: true, get: function () { return CreateStudent_1.CreateStudent; } });
 const DeleteStudent_1 = require("./Student/DeleteStudent");
@@ -21,4 +21,6 @@ const CreateCourse_1 = require("./Course/CreateCourse");
 Object.defineProperty(exports, "CreateCourse", { enumerable: true, get: function () { return CreateCourse_1.CreateCourse; } });
 const ShowCourse_1 = require("./Course/ShowCourse");
 Object.defineProperty(exports, "ShowCourse", { enumerable: true, get: function () { return ShowCourse_1.ShowCourse; } });
+const CheckSession_1 = require("./Session/CheckSession");
+Object.defineProperty(exports, "CheckSession", { enumerable: true, get: function () { return CheckSession_1.CheckSession; } });
 //# sourceMappingURL=index.js.map

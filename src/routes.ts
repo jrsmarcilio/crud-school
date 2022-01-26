@@ -15,6 +15,7 @@ const activateUser = new Controller.ActivateUser();
 const createSession = new Controller.CreateSession();
 const createCourse = new Controller.CreateCourse();
 const showCourse = new Controller.ShowCourse();
+const checkSession = new Controller.CheckSession();
 
 routes.get("/students", middlewareAuth, showStudent.show);
 routes.post("/students", middlewareAuth, createStudent.handle);
@@ -29,5 +30,6 @@ routes.post("/users", createUser.handle, createMail.handle);
 routes.get("/active-mail/:email", activateUser.mail);
 
 routes.post("/sessions", createSession.store);
+routes.get("/check-session", middlewareAuth, checkSession.check);
 
 export { routes };

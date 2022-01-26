@@ -32,10 +32,11 @@ class CreateSessionService {
             const isValid = bcryptjs_1.default.compareSync(password, user.password);
             if (!isValid)
                 throw new Error("Username or password do not match");
-            const { id, email } = user;
+            const { id, email, name } = user;
             return {
                 user: {
                     id,
+                    name,
                     username,
                     email,
                 },

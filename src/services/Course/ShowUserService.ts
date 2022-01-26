@@ -11,6 +11,7 @@ class ShowCourseService {
           id: userId,
         },
       },
+      relations: ["students"],
     });
 
     if (!courses) throw new Error("Courses not found");

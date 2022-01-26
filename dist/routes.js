@@ -35,6 +35,7 @@ const activateUser = new Controller.ActivateUser();
 const createSession = new Controller.CreateSession();
 const createCourse = new Controller.CreateCourse();
 const showCourse = new Controller.ShowCourse();
+const checkSession = new Controller.CheckSession();
 routes.get("/students", auth_1.middlewareAuth, showStudent.show);
 routes.post("/students", auth_1.middlewareAuth, createStudent.handle);
 routes.get("/students/:id", auth_1.middlewareAuth, showStudent.index);
@@ -45,4 +46,5 @@ routes.get("/courses", auth_1.middlewareAuth, showCourse.show);
 routes.post("/users", createUser.handle, createMail.handle);
 routes.get("/active-mail/:email", activateUser.mail);
 routes.post("/sessions", createSession.store);
+routes.get("/check-session", auth_1.middlewareAuth, checkSession.check);
 //# sourceMappingURL=routes.js.map

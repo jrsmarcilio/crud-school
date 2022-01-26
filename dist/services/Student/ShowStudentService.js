@@ -17,13 +17,8 @@ class ShowStudentService {
         return __awaiter(this, void 0, void 0, function* () {
             const studentRepository = (0, typeorm_1.getCustomRepository)(StudentRepositories_1.StudentRepositories);
             const students = yield studentRepository.find({
-                where: {
-                    user: {
-                        id: idUser,
-                    },
-                },
+                where: { user: { id: idUser } },
             });
-            console.log(students);
             if (!students)
                 throw new Error("Students not found");
             return students;
@@ -33,10 +28,7 @@ class ShowStudentService {
         return __awaiter(this, void 0, void 0, function* () {
             const studentRepository = (0, typeorm_1.getCustomRepository)(StudentRepositories_1.StudentRepositories);
             const student = yield studentRepository.findOne({
-                where: {
-                    id: idStudent,
-                    user: { id: idUser },
-                },
+                where: { id: idStudent, user: { id: idUser } },
             });
             if (!student)
                 throw new Error("Student not found");

@@ -12,4 +12,3 @@ createConnection({
     console.log("Connected to the database.");
   })
   .catch((err) => console.error("Error Connected", err));
-

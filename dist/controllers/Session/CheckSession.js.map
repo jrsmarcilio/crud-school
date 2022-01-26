@@ -1,0 +1,1 @@
+{"version":3,"file":"CheckSession.js","sourceRoot":"","sources":["../../../src/controllers/Session/CheckSession.ts"],"names":[],"mappings":";;;;;;;;;;;;AAEA,MAAM,YAAY;IACV,KAAK,CAAC,OAAgB,EAAE,QAAkB,EAAE,IAAkB;;YAClE,QAAQ,CAAC,IAAI,CAAC,EAAE,OAAO,EAAE,IAAI,EAAE,CAAC,CAAC;QACnC,CAAC;KAAA;CACF;AAEQ,oCAAY"}
