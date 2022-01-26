@@ -3,8 +3,12 @@ import { createConnection } from "typeorm";
 
 createConnection({
   type: "mysql",
-  url: process.env.CLEARDB_DATABASE_URL,
-  entities: [__dirname + "/../entities/*.js"],
+  host: "localhost",
+  port: 3306,
+  username: "root",
+  password: "",
+  database: "dbschool",
+  entities: [__dirname + "/../entities/*.ts"],
   synchronize: true,
   logging: true,
 })
